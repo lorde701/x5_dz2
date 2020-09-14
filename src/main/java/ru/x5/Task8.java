@@ -12,16 +12,16 @@ import java.util.Scanner;
 // - среднее арифметическое отрицательных элементов
 public class Task8 {
     public static void main(String[] args) {
-        int[] mas = {1, -10, 5, 6, 45, 23, -45, -34, 0, 32, 56, -1, 2, -2};
+        int[] arr = {1, -10, 5, 6, 45, 23, -45, -34, 0, 32, 56, -1, 2, -2};
 
-        int max = mas[0];
+        int max = arr[0];
         long posSum = 0;
         int posCount = 0;
         long negSum = 0;
         int negCount = 0;
         int negEvenSum = 0;
 
-        for (int current : mas) {
+        for (int current : arr) {
             if (max < current) {
                 max = current;
             }

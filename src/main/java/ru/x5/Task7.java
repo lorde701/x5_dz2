@@ -1,5 +1,9 @@
 package ru.x5;
 
+import javafx.util.Pair;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 // Написать программу, вычисляющую стоимость 10
@@ -15,21 +19,19 @@ public class Task7 {
         System.out.println("Введите код города: ");
         Scanner scanner = new Scanner(System.in);
         int value = scanner.nextInt();
-        switch (value) {
-            case 905:
-                System.out.println("Москва. Стоимость разговора: 4.15");
-                return;
-            case 194:
-                System.out.println("Ростов. Стоимость разговора: 1.98");
-                return;
-            case 491:
-                System.out.println("Краснодар. Стоимость разговора: 2.69");
-                return;
-            case 800:
-                System.out.println("Киров. Стоимость разговора: 5.00");
-                return;
-            default:
-                System.out.println("Город не найден");
+        Map<Integer, Pair<String, Float>> codes = new HashMap<Integer, Pair<String, Float>>() {{
+            put(905, new Pair<String, Float>("Москва", 4.15f));
+            put(194, new Pair<String, Float>("Ростов", 1.98f));
+            put(491, new Pair<String, Float>("Краснодар", 2.69f));
+            put(800, new Pair<String, Float>("Киров", 5.00f));
+        }};
+
+        if (codes.containsKey(value)) {
+            Pair<String, Float> cityAndPrise = codes.get(value);
+            System.out.println(
+                    String.format("%s. Стоимость разговора: %s", cityAndPrise.getKey(), (cityAndPrise.getValue()) * 10));
+        } else {
+            System.out.println("Город не найден");
         }
     }
 }
